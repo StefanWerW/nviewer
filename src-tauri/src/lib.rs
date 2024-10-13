@@ -6,18 +6,15 @@ use std::time::{Duration, Instant};
 use serde::Serialize;
 use std::sync::{Arc, Mutex};
 
-// fn print_device_info() -> Result<(), nvml_wrapper::error::NvmlError> {
+// #[tauri::command]
+// fn get_gpu_info() -> Result<String, String> {
 //   let nvml = Nvml::init()?;
-//   let device = nvml.device_by_index(0)?;
+// // Get the first `Device` (GPU) in the system
+// let device = nvml.device_by_index(0)?;
 
-//   println!("Device name: {}", device.name()?);
-//   println!("Memory: Used {} out of {} MiB", device.memory_info()?.used / 1024 / 1024, device.memory_info()?.total / 1024 / 1024);
+//   let brand = device.brand()?;
 
-//   println!("Temperature: {}°C", device.temperature(TemperatureSensor::Gpu)?);
-//   println!("Fan speed: {}%", device.fan_speed(0)?);
-//   println!("Power usage: {} W", device.power_usage()?);
-
-//   Ok(())
+//   Ok(brand)
 // }
 
 #[derive(Clone, Serialize)]
