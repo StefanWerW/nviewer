@@ -4,6 +4,12 @@
 
 NViewer is a lightweight, cross-platform application built using **Tauri**, **Rust**, and **React** to monitor Nvidia GPU metrics such as usage, temperature, memory, and more. It provides an intuitive UI to display real-time GPU statistics in an easily accessible format, making it perfect for system monitoring and performance tracking.
 
+<p align=center>
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=tauri,rust,typescript,tailwind" />
+  </a>
+</p>
+
 ## Features
 
 - Real-time Nvidia GPU usage monitoring (usage, temperature, memory, etc.)
