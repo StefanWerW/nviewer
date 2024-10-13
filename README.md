@@ -1,4 +1,4 @@
-# NViewer - NVida Monitor for Linux
+# NViewer - NVidia Monitor for Linux
 
 ![NViewer Screenshot](./assets/sh.png)
 
