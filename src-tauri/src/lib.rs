@@ -5,6 +5,10 @@ use std::thread;
 use std::time::{Duration, Instant};
 use serde::Serialize;
 use std::sync::{Arc, Mutex};
+use tauri::{
+  menu::{Menu, MenuItem},
+  tray::TrayIconBuilder,
+};
 
 // #[tauri::command]
 // fn get_gpu_info() -> Result<String, String> {
@@ -40,6 +44,23 @@ pub fn run() {
             .build(),
         )?;
       }
+
+      let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
+      let menu = Menu::with_items(app, &[&quit_i])?;
+
+      let tray = TrayIconBuilder::new()
+        .icon(app.default_window_icon().unwrap().clone())
+        .menu(&menu)
+        .menu_on_left_click(true)
+        .on_menu_event(|app, event| match event.id.as_ref() {
+          "quit" => {
+            app.exit(0);
+          }
+          _ => {
+            println!("menu item {:?} not handled", event.id);
+          }
+        })
+        .build(app)?;
 
       // Clone the AppHandle to use it in the thread safely
       let app_handle = app.handle().clone(); // Clone the handle instead of holding a reference
